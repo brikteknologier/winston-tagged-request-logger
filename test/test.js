@@ -32,12 +32,13 @@ describe('tagged request logger', function() {
   });
 
   it('should log a requestjs request', function(done) {
-    var requestor = wtrl(request);
-    wtrl('http://localhost:32962/thing', function(err, res, body) {
+    var requestor = wtrl(request, logger);
+    requestor('http://localhost:32962/thing', function(err, res, body) {
       assert(!err);
       assert(transport.writeOutput.length == 1);
       assert(transport.writeOutput[0].match(/get/i));
-      assert(transport.writeOutput[1].match(/200/));
+      assert(transport.writeOutput[0].match(/200/));
+      console.log(transport.writeOutput[0]);
       done();
     });
   });
