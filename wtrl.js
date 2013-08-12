@@ -13,6 +13,7 @@ module.exports = function createLoggedRequestor (request, log) {
         res.request.method, res.request.uri.href, res.statusCode, 
         (new Date() - startTime) + "ms "
       ].join(' '));
+      if (level == 'warn') socketLog.log(level, res.body.toString())
     });
     return reqobj;
   };
