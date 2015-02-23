@@ -6,10 +6,8 @@ module.exports = function createLoggedRequestor (request, log) {
       startTime = new Date();
     });
     reqobj.on('response', function(res) {
-      var socketLog = log.createSublogger(
-        res.socket.localAddress + ":" + res.socket.localPort);
       var level = res.statusCode < 400 ? 'info' : 'warn';
-      socketLog.log(level, [
+      log.log(level, [
         res.request.method, res.request.uri.href, res.statusCode, 
         (new Date() - startTime) + "ms "
       ].join(' '));
