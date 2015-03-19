@@ -15,7 +15,7 @@ module.exports = function createLoggedRequestor (request, log) {
         var body = '';
         res.on('data', function(ch) { body += ch });
         res.on('end', function() {
-          socketLog.log(level, body);
+          log.log(level, body);
         });
       }
     });
