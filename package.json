@@ -1,6 +1,6 @@
 {
   "name": "winston-tagged-request-logger",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Pipes events from request.js to a TaggedLogger",
   "main": "wtrl.js",
   "directories": {
